@@ -2,7 +2,7 @@
 """
 the module for Codeforces (https://codeforces.com/)
 
-:note: There is the offcial API https://codeforces.com/api/help
+:note: There is the official API https://codeforces.com/apiHelp
 """
 
 import datetime
@@ -88,7 +88,7 @@ class CodeforcesService(onlinejudge.type.Service):
         resp = utils.request('GET', url, session=session)
         timestamp = datetime.datetime.now(datetime.timezone.utc).astimezone()
         data = json.loads(resp.text)
-        assert data['status'] == 'OK'
+        assert data['status'] == 'OK', data['comment']
         for row in data['result']:
             yield CodeforcesContestData._from_json(row, response=resp, session=session, timestamp=timestamp)
 
@@ -205,11 +205,12 @@ class CodeforcesContest(onlinejudge.type.Contest):
 
     def list_problem_data(self, *, session: Optional[requests.Session] = None) -> List['CodeforcesProblemData']:
         session = session or utils.get_default_session()
-        url = 'https://codeforces.com/api/contest.standings?contestId={}&from=1&count=1'.format(self.contest_id)
+        # Public regular contests accept only contestId: https://codeforces.com/apiHelp/methods#contest.standings
+        url = 'https://codeforces.com/api/contest.standings?contestId={}'.format(self.contest_id)
         resp = utils.request('GET', url, session=session)
         timestamp = datetime.datetime.now(datetime.timezone.utc).astimezone()
         data = json.loads(resp.text)
-        assert data['status'] == 'OK'
+        assert data['status'] == 'OK', data['comment']
         return [CodeforcesProblemData._from_json(row, response=resp, session=session, timestamp=timestamp) for row in data['result']['problems']]
 
     def list_problems(self, *, session: Optional[requests.Session] = None) -> Sequence['CodeforcesProblem']:
@@ -217,11 +218,11 @@ class CodeforcesContest(onlinejudge.type.Contest):
 
     def download_data(self, *, session: Optional[requests.Session] = None) -> CodeforcesContestData:
         session = session or utils.get_default_session()
-        url = 'https://codeforces.com/api/contest.standings?contestId={}&from=1&count=1'.format(self.contest_id)
+        url = 'https://codeforces.com/api/contest.standings?contestId={}'.format(self.contest_id)
         resp = utils.request('GET', url, session=session)
         timestamp = datetime.datetime.now(datetime.timezone.utc).astimezone()
         data = json.loads(resp.text)
-        assert data['status'] == 'OK'
+        assert data['status'] == 'OK', data['comment']
         return CodeforcesContestData._from_json(data['result']['contest'], response=resp, session=session, timestamp=timestamp)
 
 
@@ -290,7 +291,7 @@ class CodeforcesProblemData(ProblemData):
         )
 
 
-# NOTE: Codeforces has its API: https://codeforces.com/api/help
+# NOTE: Codeforces has its API: https://codeforces.com/apiHelp
 class CodeforcesProblem(onlinejudge.type.Problem):
     """
     :ivar contest_id: :py:class:`int`

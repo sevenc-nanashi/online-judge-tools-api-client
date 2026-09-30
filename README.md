@@ -9,6 +9,7 @@ This fork is intended to be used as a backend of [sevenc-nanashi/competitive-pro
 - Handle `KiB` and `MiB` units in memory limit for AtCoder.
 - Support `codeforces.me` domain for Codeforces.
 - Perform login check using `codeforces.com/profile` instead of `codeforces.com/enter` for Codeforces.
+- Update usage of Codeforces API.
 
 ---
 
