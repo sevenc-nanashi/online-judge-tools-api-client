@@ -49,7 +49,7 @@ schema = {
     "type": "object",
     "properties": {
         "contest_id": {
-            "type": ["string", "integer"],
+            "type": "string",
         },
         "url": {
             "type": "string",
@@ -61,10 +61,10 @@ schema = {
                 "type": "object",
                 "properties": {
                     "problem_id": {
-                        "type": ["string", "integer"],
+                        "type": "string",
                     },
                     "contest_id": {
-                        "type": ["string", "integer"],
+                        "type": "string",
                     },
                     "url": {
                         "type": "string",
@@ -192,7 +192,7 @@ def main(contest: Contest, *, is_full: bool, session: requests.Session) -> Dict[
     else:
         assert False
 
-    result['contest_id'] = vars(contest)['contest_id']
+    result['contest_id'] = str(vars(contest)['contest_id'])
     for problem_result in result['problems']:
         parsed_problem = onlinejudge.dispatch.problem_from_url(problem_result['url'])
         assert parsed_problem is not None

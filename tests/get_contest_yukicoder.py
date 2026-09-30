@@ -11,13 +11,13 @@ class GetContestYukicoderTest(unittest.TestCase):
             "messages": [],
             "result": {
                 "url": "https://yukicoder.me/contests/294",
-                "contest_id": 294,
+                "contest_id": "294",
                 "name": "yukicoder contest 277",
                 "problems": [
                     {
                         "url": "https://yukicoder.me/problems/5033",
-                        "problem_id": 5033,
-                        "contest_id": 294,
+                        "problem_id": "5033",
+                        "contest_id": "294",
                         "name": "Square Sqsq",
                         "context": {
                             "contest": {
@@ -29,8 +29,8 @@ class GetContestYukicoderTest(unittest.TestCase):
                     },
                     {
                         "url": "https://yukicoder.me/problems/5191",
-                        "problem_id": 5191,
-                        "contest_id": 294,
+                        "problem_id": "5191",
+                        "contest_id": "294",
                         "name": "Multiply or Divide",
                         "context": {
                             "contest": {
@@ -42,8 +42,8 @@ class GetContestYukicoderTest(unittest.TestCase):
                     },
                     {
                         "url": "https://yukicoder.me/problems/5203",
-                        "problem_id": 5203,
-                        "contest_id": 294,
+                        "problem_id": "5203",
+                        "contest_id": "294",
                         "name": "Moving Penguin",
                         "context": {
                             "contest": {
@@ -55,8 +55,8 @@ class GetContestYukicoderTest(unittest.TestCase):
                     },
                     {
                         "url": "https://yukicoder.me/problems/5229",
-                        "problem_id": 5229,
-                        "contest_id": 294,
+                        "problem_id": "5229",
+                        "contest_id": "294",
                         "name": "Range Nearest Query",
                         "context": {
                             "contest": {
@@ -68,8 +68,8 @@ class GetContestYukicoderTest(unittest.TestCase):
                     },
                     {
                         "url": "https://yukicoder.me/problems/5436",
-                        "problem_id": 5436,
-                        "contest_id": 294,
+                        "problem_id": "5436",
+                        "contest_id": "294",
                         "name": "Squared Sum",
                         "context": {
                             "contest": {
@@ -81,8 +81,8 @@ class GetContestYukicoderTest(unittest.TestCase):
                     },
                     {
                         "url": "https://yukicoder.me/problems/5459",
-                        "problem_id": 5459,
-                        "contest_id": 294,
+                        "problem_id": "5459",
+                        "contest_id": "294",
                         "name": "Multiply or Add",
                         "context": {
                             "contest": {

@@ -39,10 +39,10 @@ schema = {
     "type": "object",
     "properties": {
         "problem_id": {
-            "type": ["string", "integer"],
+            "type": "string",
         },
         "contest_id": {
-            "type": ["string", "integer"],
+            "type": "string",
         },
         "url": {
             "type": "string",
@@ -286,8 +286,8 @@ def translate_to_competitive_companion_format(data: Dict[str, Any]) -> Dict[str,
     }
 
 
-def get_problem_ids(problem: Problem) -> Dict[str, Any]:
-    result = {key: value for key, value in vars(problem).items() if key in ('problem_id', 'contest_id') and value is not None}
+def get_problem_ids(problem: Problem) -> Dict[str, str]:
+    result = {key: str(value) for key, value in vars(problem).items() if key in ('problem_id', 'contest_id') and value is not None}
     if isinstance(problem, CodeforcesProblem):
         result['problem_id'] = problem.index
     return result
