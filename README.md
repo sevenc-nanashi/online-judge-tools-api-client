@@ -10,6 +10,7 @@ This fork is intended to be used as a backend of [sevenc-nanashi/competitive-pro
 - Support `codeforces.me` domain for Codeforces.
 - Perform login check using `codeforces.com/profile` instead of `codeforces.com/enter` for Codeforces.
 - Update usage of Codeforces API.
+- Use AOJ's current `https://onlinejudge.u-aizu.ac.jp/api/` endpoints for problem descriptions, arenas, and login checks.
 
 ---
 

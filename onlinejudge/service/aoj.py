@@ -47,7 +47,7 @@ class AOJService(onlinejudge.type.Service):
 
     def is_logged_in(self, *, session: Optional[requests.Session] = None) -> bool:
         session = session or utils.get_default_session()
-        url = 'https://judgeapi.u-aizu.ac.jp/self'
+        url = 'https://onlinejudge.u-aizu.ac.jp/api/self'
         resp = utils.request('GET', url, session=session, raise_for_status=False)
         if resp.status_code != 200:
             return False
@@ -87,7 +87,7 @@ class AOJProblem(onlinejudge.type.Problem):
             logger.info("fallback: parsing HTML")
 
             # reference: http://developers.u-aizu.ac.jp/api?key=judgeapi%2Fresources%2Fdescriptions%2F%7Blang%7D%2F%7Bproblem_id%7D_GET
-            url = 'https://judgeapi.u-aizu.ac.jp/resources/descriptions/ja/{}'.format(self.problem_id)
+            url = 'https://onlinejudge.u-aizu.ac.jp/api/resources/descriptions/ja/{}'.format(self.problem_id)
             resp = utils.request('GET', url, session=session)
             html = json.loads(resp.text)['html']
 
@@ -193,7 +193,7 @@ class AOJArenaProblem(onlinejudge.type.Problem):
 
         if self._problem_id is None:
             session = session or utils.get_default_session()
-            url = 'https://judgeapi.u-aizu.ac.jp/arenas/{}/problems'.format(self.arena_id)
+            url = 'https://onlinejudge.u-aizu.ac.jp/api/arenas/{}/problems'.format(self.arena_id)
             resp = utils.request('GET', url, session=session)
             problems = json.loads(resp.text)
             for problem in problems:
