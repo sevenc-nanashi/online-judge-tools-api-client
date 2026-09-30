@@ -23,7 +23,7 @@ from onlinejudge.type import *
 
 logger = getLogger(__name__)
 
-_CODEFORCES_DOMAINS = ('codeforces.com', 'm1.codeforces.com', 'm2.codeforces.com', 'm3.codeforces.com')
+_CODEFORCES_DOMAINS = ('codeforces.com', 'm1.codeforces.com', 'm2.codeforces.com', 'm3.codeforces.com', 'codeforces.me')
 
 
 class CodeforcesService(onlinejudge.type.Service):
