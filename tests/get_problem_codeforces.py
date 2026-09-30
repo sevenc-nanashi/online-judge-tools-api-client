@@ -19,8 +19,8 @@ class GetProblemCodeforcesTest(unittest.TestCase):
             "messages": [],
             "result": {
                 "url": "https://codeforces.com/problemset/problem/700/B",
-                "problem_id": "B",
-                "contest_id": "700",
+                "problemId": "B",
+                "contestId": "700",
                 "tests": [{
                     "input": "7 2\n1 5 6 2\n1 3\n3 2\n4 5\n3 7\n4 3\n4 6\n",
                     "output": "6\n"
@@ -44,8 +44,8 @@ class GetProblemCodeforcesTest(unittest.TestCase):
             "messages": [],
             "result": {
                 "url": "https://codeforces.com/contest/538/problem/H",
-                "problem_id": "H",
-                "contest_id": "538",
+                "problemId": "H",
+                "contestId": "538",
                 "tests": [{
                     "input": "10 20\n3 0\n3 6\n4 9\n16 25\n",
                     "output": "POSSIBLE\n4 16\n112\n"
@@ -76,8 +76,8 @@ class GetProblemCodeforcesTest(unittest.TestCase):
             "messages": [],
             "result": {
                 "url": "https://codeforces.com/gym/101020/problem/A",
-                "problem_id": "A",
-                "contest_id": "101020",
+                "problemId": "A",
+                "contestId": "101020",
                 "tests": [{
                     "input": "3\n5 4\n1 2\n33 33\n",
                     "output": "20\n2\n1089\n"
@@ -108,8 +108,8 @@ class GetProblemCodeforcesTest(unittest.TestCase):
             "messages": [],
             "result": {
                 "url": "https://codeforces.com/contest/1080/problem/A",
-                "problem_id": "A",
-                "contest_id": "1080",
+                "problemId": "A",
+                "contestId": "1080",
                 "tests": [{
                     "input": "3 5\n",
                     "output": "10\n"
@@ -143,8 +143,8 @@ class GetProblemCodeforcesTest(unittest.TestCase):
             "messages": [],
             "result": {
                 "url": "https://codeforces.com/contest/1334/problem/D",
-                "problem_id": "D",
-                "contest_id": "1334",
+                "problemId": "D",
+                "contestId": "1334",
                 "tests": [{
                     "input": "3\n2 1 3\n3 3 6\n99995 9998900031 9998900031\n",
                     "output": "1 2 1\n1 3 2 3\n1\n"
@@ -175,8 +175,8 @@ class GetProblemCodeforcesTest(unittest.TestCase):
             "messages": [],
             "result": {
                 "url": "https://codeforces.com/contest/1714/problem/A",
-                "problem_id": "A",
-                "contest_id": "1714",
+                "problemId": "A",
+                "contestId": "1714",
                 "tests": [{
                     "input": "3\n1 6 13\n8 0\n3 6 0\n12 30\n14 45\n6 0\n2 23 35\n20 15\n10 30\n",
                     "output": "1 47\n0 0\n10 55\n"
@@ -213,8 +213,8 @@ class GetProblemCodeforcesTest(unittest.TestCase):
                     "messages": [],
                     "result": {
                         "url": "https://codeforces.com/edu/course/2/lesson/2/1/practice/contest/269100/problem/A",
-                        "problem_id": "A",
-                        "contest_id": "269100",
+                        "problemId": "A",
+                        "contestId": "269100",
                         "tests": [{
                             "input": "ababba\n",
                             "output": "6 5 0 2 4 1 3\n"

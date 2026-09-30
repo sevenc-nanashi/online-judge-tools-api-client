@@ -11,7 +11,7 @@ class GetProblemAnarchyGolfTest(unittest.TestCase):
             "messages": [],
             "result": {
                 "url": "http://golf.shinh.org/p.rb?hello+world",
-                "problem_id": "hello+world",
+                "problemId": "hello+world",
                 "tests": [
                     {
                         "input": "",
@@ -31,7 +31,7 @@ class GetProblemAnarchyGolfTest(unittest.TestCase):
             "messages": [],
             "result": {
                 "url": "http://golf.shinh.org/p.rb?simple+language",
-                "problem_id": "simple+language",
+                "problemId": "simple+language",
                 "tests": [
                     {
                         "input": "2+2",
@@ -62,7 +62,7 @@ class GetProblemAnarchyGolfTest(unittest.TestCase):
             "messages": [],
             "result": {
                 "url": "http://golf.shinh.org/p.rb?momomo",
-                "problem_id": "momomo",
+                "problemId": "momomo",
                 "tests": [
                     {
                         "input": "も\nもも\nももも\nもももも\nももももも\nもももももも\nももももももも\nもももももももも\nももももももももも\nもももももももももも\nももももももももももも\nもももももももももももも\nももももももももももももも\nもももももももももももももも\nももももももももももももももも\nもももももももももももももももも\nももももももももももももももももも\nもももももももももももももももももも\nももももももももももももももももももも\nもももももももももももももももももももも\nももももももももももももももももももももも\nもももももももももももももももももももももも\nももももももももももももももももももももももも\nもももももももももももももももももももももももも\nももももももももももももももももももももももももも\nもももももももももももももももももももももももももも\nももももももももももももももももももももももももももも\nもももももももももももももももももももももももももももも\nももももももももももももももももももももももももももももも\nもももももももももももももももももももももももももももももも\n",

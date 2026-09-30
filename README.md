@@ -5,7 +5,7 @@ This fork is intended to be used as a backend of [sevenc-nanashi/competitive-pro
 
 ## Changes
 
-- Add `contest_id` and `problem_id` to the output of JSON outputs.
+- Add `contestId` and `problemId` to the output of JSON outputs.
 - Handle `KiB` and `MiB` units in memory limit for AtCoder.
 - Support `codeforces.me` domain for Codeforces.
 - Perform login check using `codeforces.com/profile` instead of `codeforces.com/enter` for Codeforces.
@@ -76,8 +76,8 @@ Instead of `login-service`, you can use [`oj` command](https://github.com/online
 #### format
 
 -   `url`: the URL of the problem
--   `problem_id` (optional): the service's problem ID, as a string. For Codeforces, this is the problem index (e.g. `A`). Omitted when unavailable.
--   `contest_id` (optional): the service's contest ID, as a string. Omitted when unavailable.
+-   `problemId` (optional): the service's problem ID, as a string. For Codeforces, this is the problem index (e.g. `A`). Omitted when unavailable.
+-   `contestId` (optional): the service's contest ID, as a string. Omitted when unavailable.
 -   `name`: the name of the problem. This doesn't include alphabets (e.g. just "Xor Sum" is used instead of "D. Xor Sum") because such alphabets are attributes belonging to the relation between problems and contests rather than belonging to only problems. (not compatible to [jmerle/competitive-companion](https://github.com/jmerle/competitive-companion))
 -   `context`:
     -    `contest` (optional):
@@ -197,10 +197,10 @@ See the document of [jmerle/competitive-companion](https://github.com/jmerle/com
 #### format
 
 -   `url`: the URL of the contest
--   `contest_id`: the service's contest ID, as a string
+-   `contestId`: the service's contest ID, as a string
 -   `name`: the name of the contest
 -   `problems`: problems. For details, see the description of `get-problem`.
-    -   `contest_id` refers to the requested contest, including virtual contests.
+    -   `contestId` refers to the requested contest, including virtual contests.
 
 
 #### example

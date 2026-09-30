@@ -11,13 +11,13 @@ from onlinejudge.type import *
 from onlinejudge_api.get_problem import get_problem_ids
 
 schema_example = {
-    "contest_id": "cf16-exhibition",
+    "contestId": "cf16-exhibition",
     "url": "https://atcoder.jp/contests/cf16-exhibition",
     "name": "CODE FESTIVAL 2016 Exhibition",
     "problems": [
         {
-            "problem_id": "codefestival_2016_ex_a",
-            "contest_id": "cf16-exhibition",
+            "problemId": "codefestival_2016_ex_a",
+            "contestId": "cf16-exhibition",
             "url": "https://atcoder.jp/contests/cf16-exhibition/tasks/codefestival_2016_ex_a",
             "name": "Distance Pairs",
             "context": {
@@ -29,8 +29,8 @@ schema_example = {
             }
         },
         {
-            "problem_id": "codefestival_2016_ex_b",
-            "contest_id": "cf16-exhibition",
+            "problemId": "codefestival_2016_ex_b",
+            "contestId": "cf16-exhibition",
             "url": "https://atcoder.jp/contests/cf16-exhibition/tasks/codefestival_2016_ex_b",
             "name": "Exact Payment",
             "context": {
@@ -48,7 +48,7 @@ schema = {
     "$schema": "http://json-schema.org/schema#",
     "type": "object",
     "properties": {
-        "contest_id": {
+        "contestId": {
             "type": "string",
         },
         "url": {
@@ -60,10 +60,10 @@ schema = {
             "items": {
                 "type": "object",
                 "properties": {
-                    "problem_id": {
+                    "problemId": {
                         "type": "string",
                     },
-                    "contest_id": {
+                    "contestId": {
                         "type": "string",
                     },
                     "url": {
@@ -192,10 +192,10 @@ def main(contest: Contest, *, is_full: bool, session: requests.Session) -> Dict[
     else:
         assert False
 
-    result['contest_id'] = str(vars(contest)['contest_id'])
+    result['contestId'] = str(vars(contest)['contest_id'])
     for problem_result in result['problems']:
         parsed_problem = onlinejudge.dispatch.problem_from_url(problem_result['url'])
         assert parsed_problem is not None
         problem_result.update(get_problem_ids(parsed_problem))
-        problem_result['contest_id'] = result['contest_id']
+        problem_result['contestId'] = result['contestId']
     return result

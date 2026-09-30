@@ -9,8 +9,8 @@ from onlinejudge.type import *
 logger = getLogger()
 
 schema_example = {
-    "problem_id": "abc160_c",
-    "contest_id": "abc160",
+    "problemId": "abc160_c",
+    "contestId": "abc160",
     "url": "https://atcoder.jp/contests/abc160/tasks/abc160_c",
     "name": "Traveling Salesman around Lake",
     "context": {
@@ -38,10 +38,10 @@ schema = {
     "$schema": "http://json-schema.org/schema#",
     "type": "object",
     "properties": {
-        "problem_id": {
+        "problemId": {
             "type": "string",
         },
-        "contest_id": {
+        "contestId": {
             "type": "string",
         },
         "url": {
@@ -287,9 +287,9 @@ def translate_to_competitive_companion_format(data: Dict[str, Any]) -> Dict[str,
 
 
 def get_problem_ids(problem: Problem) -> Dict[str, str]:
-    result = {key: str(value) for key, value in vars(problem).items() if key in ('problem_id', 'contest_id') and value is not None}
+    result = {key.replace('_id', 'Id'): str(value) for key, value in vars(problem).items() if key in ('problem_id', 'contest_id') and value is not None}
     if isinstance(problem, CodeforcesProblem):
-        result['problem_id'] = problem.index
+        result['problemId'] = problem.index
     return result
 
 
