@@ -32,29 +32,30 @@ class CodeforcesService(onlinejudge.type.Service):
         :raises LoginError:
         """
         session = session or utils.get_default_session()
-        url = 'https://codeforces.com/enter'
+        url = 'https://codeforces.com/profile'
         # get
         resp = utils.request('GET', url, session=session)
-        if resp.url != url:  # redirected
+        if '/profile/' in resp.url:  # already logged in
             logger.info('You have already signed in.')
             return
-        # parse
-        soup = bs4.BeautifulSoup(resp.text, utils.HTML_PARSER)
-        form = soup.find('form', id='enterForm')
-        logger.debug('form: %s', str(form))
-        username, password = get_credentials()
-        form = utils.FormSender(form, url=resp.url)
-        form.set('handleOrEmail', username)
-        form.set('password', password)
-        form.set('remember', 'on')
-        # post
-        resp = form.request(session)
-        resp.raise_for_status()
-        if resp.url != url:  # redirected
-            logger.info('Welcome, %s.', username)
-        else:
-            logger.error('Invalid handle or password.')
-            raise LoginError('Invalid handle or password.')
+        raise LoginError('Codeforces login now requires Cloudflare challenge and is no longer available.')
+        # # parse
+        # soup = bs4.BeautifulSoup(resp.text, utils.HTML_PARSER)
+        # form = soup.find('form', id='enterForm')
+        # logger.debug('form: %s', str(form))
+        # username, password = get_credentials()
+        # form = utils.FormSender(form, url=resp.url)
+        # form.set('handleOrEmail', username)
+        # form.set('password', password)
+        # form.set('remember', 'on')
+        # # post
+        # resp = form.request(session)
+        # resp.raise_for_status()
+        # if resp.url != url:  # redirected
+        #     logger.info('Welcome, %s.', username)
+        # else:
+        #     logger.error('Invalid handle or password.')
+        #     raise LoginError('Invalid handle or password.')
 
     def get_url_of_login_page(self) -> str:
         return 'https://codeforces.com/enter'
