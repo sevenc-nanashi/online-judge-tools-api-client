@@ -62,6 +62,8 @@ Instead of `login-service`, you can use [`oj` command](https://github.com/online
 #### format
 
 -   `url`: the URL of the problem
+-   `problem_id` (optional): the service's problem ID, as a string or integer. For Codeforces, this is the problem index (e.g. `A`). Omitted when unavailable.
+-   `contest_id` (optional): the service's contest ID, as a string or integer. Omitted when unavailable.
 -   `name`: the name of the problem. This doesn't include alphabets (e.g. just "Xor Sum" is used instead of "D. Xor Sum") because such alphabets are attributes belonging to the relation between problems and contests rather than belonging to only problems. (not compatible to [jmerle/competitive-companion](https://github.com/jmerle/competitive-companion))
 -   `context`:
     -    `contest` (optional):
@@ -181,8 +183,10 @@ See the document of [jmerle/competitive-companion](https://github.com/jmerle/com
 #### format
 
 -   `url`: the URL of the contest
+-   `contest_id`: the service's contest ID, as a string or integer
 -   `name`: the name of the contest
 -   `problems`: problems. For details, see the description of `get-problem`.
+    -   `contest_id` refers to the requested contest, including virtual contests.
 
 
 #### example

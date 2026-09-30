@@ -17,6 +17,8 @@ class GetProblemAtCoderTest(unittest.TestCase):
             "messages": [],
             "result": {
                 "url": "https://atcoder.jp/contests/jag2013spring/tasks/icpc2013spring_a",
+                "problem_id": "icpc2013spring_a",
+                "contest_id": "jag2013spring",
                 "tests": [{
                     "input": "2 2\n2 \n1 >= 3\n2 <= 5\n2\n1 >= 4\n2 >= 3\n",
                     "output": "Yes\n"
@@ -107,6 +109,8 @@ class GetProblemAtCoderTest(unittest.TestCase):
             "messages": [],
             "result": {
                 "url": "https://atcoder.jp/contests/arc035/tasks/arc035_a",
+                "problem_id": "arc035_a",
+                "contest_id": "arc035",
                 "tests": [{
                     "input": "ab*\n",
                     "output": "YES\n"
@@ -145,6 +149,8 @@ class GetProblemAtCoderTest(unittest.TestCase):
             "messages": [],
             "result": {
                 "url": "https://atcoder.jp/contests/abc114/tasks/abc114_c",
+                "problem_id": "abc114_c",
+                "contest_id": "abc114",
                 "tests": [{
                     "input": "575\n",
                     "output": "4\n"
@@ -180,6 +186,8 @@ class GetProblemAtCoderTest(unittest.TestCase):
             "messages": [],
             "result": {
                 "url": "https://atcoder.jp/contests/abc003/tasks/abc003_4",
+                "problem_id": "abc003_4",
+                "contest_id": "abc003",
                 "tests": [{
                     "input": "3 2\n2 2\n2 2\n",
                     "output": "12\n"
@@ -218,6 +226,8 @@ class GetProblemAtCoderTest(unittest.TestCase):
             "messages": [],
             "result": {
                 "url": "https://atcoder.jp/contests/agc036/tasks/agc036_b",
+                "problem_id": "agc036_b",
+                "contest_id": "agc036",
                 "tests": [{
                     "input": "3 2\n1 2 3\n",
                     "output": "2 3\n"
@@ -259,6 +269,8 @@ class GetProblemAtCoderTest(unittest.TestCase):
             "messages": [],
             "result": {
                 "url": "https://atcoder.jp/contests/tenka1-2014-quala/tasks/tenka1_2014_qualA_e",
+                "problem_id": "tenka1_2014_qualA_e",
+                "contest_id": "tenka1-2014-quala",
                 "tests": [{
                     "input": "5 3\nAAB\nABB\nCDE\nFFH\nGHH\n2\n1 1\n2 3\n",
                     "output": "15\n7\n"
@@ -318,6 +330,8 @@ class GetProblemAtCoderTest(unittest.TestCase):
             "messages": [],
             "result": {
                 "url": "https://atcoder.jp/contests/abc170/tasks/abc170_a",
+                "problem_id": "abc170_a",
+                "contest_id": "abc170",
                 "tests": [{
                     "input": "0 2 3 4 5\n",
                     "output": "1\n",
@@ -365,6 +379,8 @@ class GetProblemAtCoderTest(unittest.TestCase):
             "messages": [],
             "result": {
                 "url": "https://atcoder.jp/contests/agc015/tasks/agc015_d",
+                "problem_id": "agc015_d",
+                "contest_id": "agc015",
                 "tests": [
                     {
                         "input": "291009339170240866\n674343695741145096\n",

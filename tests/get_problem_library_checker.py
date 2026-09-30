@@ -14,6 +14,7 @@ class GetProblemLibraryCheckerTest(unittest.TestCase):
             "messages": [],
             "result": {
                 "url": "https://judge.yosupo.jp/problem/unionfind",
+                "problem_id": "unionfind",
                 "tests": [{
                     "input": "4 7\n1 0 1\n0 0 1\n0 2 3\n1 0 1\n1 1 2\n0 0 2\n1 1 3\n",
                     "output": "0\n1\n0\n1\n"
@@ -34,6 +35,7 @@ class GetProblemLibraryCheckerTest(unittest.TestCase):
             "messages": [],
             "result": {
                 "url": "https://judge.yosupo.jp/problem/aplusb",
+                "problem_id": "aplusb",
                 "tests": [{
                     "input": "1234 5678\n",
                     "output": "6912\n",

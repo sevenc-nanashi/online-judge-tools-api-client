@@ -11,6 +11,7 @@ class GetProblemTophTest(unittest.TestCase):
             "messages": [],
             "result": {
                 "url": "https://toph.co/p/new-year-couple",
+                "problem_id": "new-year-couple",
                 "tests": [
                     {
                         "input": "8\r\nmrtarek 10 20\r\noptarkk 15 30\r\nmmtarqq 12 25\r\naatarcc 8 18\r\nheloptr 22 50\r\nmemopto 10 40\r\nkokoptz 15 45\r\nlmkoopa 5 90\r\n5\r\n3 5 20\r\n3 5 11\r\n3 5 16\r\n5 6 25\r\n5 6 16",
@@ -34,6 +35,7 @@ class GetProblemTophTest(unittest.TestCase):
             "messages": [],
             "result": {
                 "url": "https://toph.co/p/power-and-mod",
+                "problem_id": "power-and-mod",
                 "tests": [
                     {
                         "input": "2\r\n2 3 4\r\n3 4 5",

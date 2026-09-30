@@ -11,6 +11,8 @@ class GetProblemKattisTest(unittest.TestCase):
             "messages": [],
             "result": {
                 "url": "https://open.kattis.com/contests/asiasg15prelwarmup/problems/8queens",
+                "problem_id": "8queens",
+                "contest_id": "asiasg15prelwarmup",
                 "tests": [
                     {
                         "input": "*.......\n..*.....\n....*...\n......*.\n.*......\n.......*\n.....*..\n...*....\n",
@@ -37,6 +39,8 @@ class GetProblemKattisTest(unittest.TestCase):
             "messages": [],
             "result": {
                 "url": "https://open.kattis.com/contests/hanoi18/problems/amazingadventures",
+                "problem_id": "amazingadventures",
+                "contest_id": "hanoi18",
                 "tests": [
                     {
                         "input": "3 3\n1 1\n3 3\n2 1\n2 2\n\n3 4\n1 1\n3 4\n2 1\n1 2\n\n2 2\n2 1\n2 2\n1 2\n1 1\n\n0 0\n",

@@ -11,6 +11,8 @@ class GetProblemCodeChefTest(unittest.TestCase):
             "messages": [],
             "result": {
                 "url": "https://www.codechef.com/COOK131B/problems/XORORED",
+                "problem_id": "XORORED",
+                "contest_id": "COOK131B",
                 "tests": [{
                     "input": "1\n2\n4 6\n",
                     "output": "6 2\n"

@@ -17,6 +17,7 @@ class GetProblemYukicoderTest(unittest.TestCase):
             "messages": [],
             "result": {
                 "url": "https://yukicoder.me/problems/100",
+                "problem_id": 100,
                 "tests": [{
                     "input": "30\n5\n",
                     "output": "19\n"

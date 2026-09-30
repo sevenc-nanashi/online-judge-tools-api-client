@@ -12,6 +12,7 @@ class GetProblemTopcoderTest(unittest.TestCase):
             "messages": [],
             "result": {
                 "url": "https://community.topcoder.com/stat?c=problem_statement&pm=10760",
+                "problem_id": 10760,
                 "tests": [{
                     "input": "2 5 8\n",
                     "output": "40.0\n"
@@ -43,6 +44,7 @@ class GetProblemTopcoderTest(unittest.TestCase):
             "messages": [],
             "result": {
                 "url": "https://community.topcoder.com/stat?c=problem_statement&pm=11026",
+                "problem_id": 11026,
                 "tests": [{
                     "input": "1 00\n1 00\n1 58\n",
                     "output": "2 0.38461538461538464 0.6153846153846154\n"

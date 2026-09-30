@@ -11,9 +11,12 @@ class GetContestAtCoderProblemsTest(unittest.TestCase):
             "messages": [],
             "result": {
                 "url": "https://codeforces.com/contest/999",
+                "contest_id": 999,
                 "problems": [
                     {
                         "url": "https://codeforces.com/contest/999/problem/A",
+                        "problem_id": "A",
+                        "contest_id": 999,
                         "name": "Mishka and Contest",
                         "context": {
                             "contest": {
@@ -25,6 +28,8 @@ class GetContestAtCoderProblemsTest(unittest.TestCase):
                     },
                     {
                         "url": "https://codeforces.com/contest/999/problem/B",
+                        "problem_id": "B",
+                        "contest_id": 999,
                         "name": "Reversing Encryption",
                         "context": {
                             "contest": {
@@ -36,6 +41,8 @@ class GetContestAtCoderProblemsTest(unittest.TestCase):
                     },
                     {
                         "url": "https://codeforces.com/contest/999/problem/C",
+                        "problem_id": "C",
+                        "contest_id": 999,
                         "name": "Alphabetic Removals",
                         "context": {
                             "contest": {
@@ -47,6 +54,8 @@ class GetContestAtCoderProblemsTest(unittest.TestCase):
                     },
                     {
                         "url": "https://codeforces.com/contest/999/problem/D",
+                        "problem_id": "D",
+                        "contest_id": 999,
                         "name": "Equalize the Remainders",
                         "context": {
                             "contest": {
@@ -58,6 +67,8 @@ class GetContestAtCoderProblemsTest(unittest.TestCase):
                     },
                     {
                         "url": "https://codeforces.com/contest/999/problem/E",
+                        "problem_id": "E",
+                        "contest_id": 999,
                         "name": "Reachability from the Capital",
                         "context": {
                             "contest": {
@@ -69,6 +80,8 @@ class GetContestAtCoderProblemsTest(unittest.TestCase):
                     },
                     {
                         "url": "https://codeforces.com/contest/999/problem/F",
+                        "problem_id": "F",
+                        "contest_id": 999,
                         "name": "Cards and Joy",
                         "context": {
                             "contest": {

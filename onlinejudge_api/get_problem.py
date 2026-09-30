@@ -9,6 +9,8 @@ from onlinejudge.type import *
 logger = getLogger()
 
 schema_example = {
+    "problem_id": "abc160_c",
+    "contest_id": "abc160",
     "url": "https://atcoder.jp/contests/abc160/tasks/abc160_c",
     "name": "Traveling Salesman around Lake",
     "context": {
@@ -36,6 +38,12 @@ schema = {
     "$schema": "http://json-schema.org/schema#",
     "type": "object",
     "properties": {
+        "problem_id": {
+            "type": ["string", "integer"],
+        },
+        "contest_id": {
+            "type": ["string", "integer"],
+        },
         "url": {
             "type": "string",
             "format": "uri",
@@ -278,6 +286,13 @@ def translate_to_competitive_companion_format(data: Dict[str, Any]) -> Dict[str,
     }
 
 
+def get_problem_ids(problem: Problem) -> Dict[str, Any]:
+    result = {key: value for key, value in vars(problem).items() if key in ('problem_id', 'contest_id') and value is not None}
+    if isinstance(problem, CodeforcesProblem):
+        result['problem_id'] = problem.index
+    return result
+
+
 def main(problem: Problem, *, is_system: bool, is_compatibility: bool, is_full: bool, session: requests.Session) -> Dict[str, Any]:
     """
     :raises Exception:
@@ -287,6 +302,8 @@ def main(problem: Problem, *, is_system: bool, is_compatibility: bool, is_full: 
         "url": problem.get_url(),
         "tests": [],
     }  # type: Dict[str, Any]
+
+    result.update(get_problem_ids(problem))
 
     # download test cases
     if is_system:
