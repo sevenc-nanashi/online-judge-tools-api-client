@@ -1,3 +1,17 @@
+# sevenc-nanashi/online-judge-tools-api-client
+
+This is a fork of [online-judge-tools/api-client](https://github.com/online-judge-tools/api-client) with some modifications and fixes.
+This fork is intended to be used as a backend of [sevenc-nanashi/competitive-programming-cli](https://github.com/sevenc-nanashi/competitive-programming-cli).
+
+## Changes
+
+- Add `contest_id` and `problem_id` to the output of JSON outputs.
+- Handle `KiB` and `MiB` units in memory limit for AtCoder.
+- Support `codeforces.me` domain for Codeforces.
+- Perform login check using `codeforces.com/profile` instead of `codeforces.com/enter` for Codeforces.
+
+---
+
 # online-judge-tools/api-client
 
 [![test](https://github.com/kmyk/online-judge-api-client/workflows/test/badge.svg)](https://github.com/kmyk/online-judge-api-client/actions)
