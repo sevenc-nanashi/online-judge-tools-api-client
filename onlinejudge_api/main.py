@@ -222,6 +222,7 @@ def main(args: Optional[List[str]] = None, *, debug: bool = False) -> Dict[str, 
 
     # print the version to help to support users
     logger.info('%s %s', __package_name__, __version__)
+    logger.info('forked by sevenc-nanashi @ https://github.com/sevenc-nanashi/online-judge-tools-api-client')
 
     # do sleep to prevent impolite scraping
     logger.info('sleep %f sec', parsed.wait)
