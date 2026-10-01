@@ -25,11 +25,15 @@ class HackerRankService(onlinejudge.type.Service):
     def get_url_of_login_page(self) -> str:
         return 'https://www.hackerrank.com/auth/login'
 
-    def is_logged_in(self, *, session: Optional[requests.Session] = None) -> bool:
+    def is_logged_in(self, *, session: Optional[requests.Session] = None) -> Optional[User]:
         session = session or utils.get_default_session()
         url = 'https://www.hackerrank.com/auth/login'
         resp = utils.request('GET', url, session=session)
-        return '/auth' not in resp.url
+        if '/auth' in resp.url:
+            return None
+        resp = utils.request('GET', 'https://www.hackerrank.com/rest/hackers/me', session=session)
+        username = json.loads(resp.text)['model']['username']
+        return User(username, 'https://www.hackerrank.com/profile/{}'.format(urllib.parse.quote(username, safe='')))
 
     def get_url(self) -> str:
         return 'https://www.hackerrank.com/'

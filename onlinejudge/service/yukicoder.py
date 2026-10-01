@@ -8,6 +8,7 @@ the module for yukicoder (https://yukicoder.me/)
 
 import json
 import posixpath
+import re
 import string
 import urllib.parse
 from logging import getLogger
@@ -27,12 +28,17 @@ class YukicoderService(onlinejudge.type.Service):
     def get_url_of_login_page(self):
         return self.get_url()
 
-    def is_logged_in(self, *, session: Optional[requests.Session] = None) -> bool:
+    def is_logged_in(self, *, session: Optional[requests.Session] = None) -> Optional[User]:
         session = session or utils.get_default_session()
         url = 'https://yukicoder.me'
         resp = utils.request('GET', url, session=session)
         assert resp.status_code == 200
-        return 'login-btn' not in str(resp.content)
+        soup = bs4.BeautifulSoup(resp.content, utils.HTML_PARSER)
+        if soup.select_one('.login-btn') is not None:
+            return None
+        profile = soup.find('a', href=re.compile(r'^/users/\d+$'))
+        assert profile is not None, 'Cannot find the logged-in yukicoder user'
+        return User(profile.get_text(strip=True), urllib.parse.urljoin(self.get_url(), profile['href']))
 
     def get_url(self) -> str:
         return 'https://yukicoder.me/'

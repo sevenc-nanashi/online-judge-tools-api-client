@@ -11,6 +11,7 @@ This fork is intended to be used as a backend of [sevenc-nanashi/competitive-pro
 - Perform login check using `codeforces.com/profile` instead of `codeforces.com/enter` for Codeforces.
 - Update usage of Codeforces API.
 - Use AOJ's current `https://onlinejudge.u-aizu.ac.jp/api/` endpoints for problem descriptions, arenas, and login checks.
+- Include `userName` and `profileUrl` in the output of `login-service` command.
 
 ---
 
@@ -320,7 +321,11 @@ $ oj-api get-service https://atcoder.jp/ --list-contests | jq .result
 
 #### format
 
--   `loggedIn`: the result
+-   `loggedIn`: whether you are logged in
+-   `userName` (when logged in): the current username
+-   `profileUrl` (when logged in): the profile URL, or `null` when unavailable
+
+The Python `Service.is_logged_in()` method returns `User(username, profile_url)` when logged in and `None` otherwise.
 
 
 #### example
@@ -328,7 +333,9 @@ $ oj-api get-service https://atcoder.jp/ --list-contests | jq .result
 ``` json
 $ USERNAME=kimiyuki PASSWORD='????????????????' oj-api login-service https://atcoder.jp/ | jq .result
 {
-  "loggedIn": true
+  "loggedIn": true,
+  "userName": "kimiyuki",
+  "profileUrl": "https://atcoder.jp/users/kimiyuki"
 }
 ```
 

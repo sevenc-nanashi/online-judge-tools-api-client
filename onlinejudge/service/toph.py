@@ -25,11 +25,17 @@ class TophService(onlinejudge.type.Service):
     def get_url_of_login_page(self) -> str:
         return 'https://toph.co/login'
 
-    def is_logged_in(self, *, session: Optional[requests.Session] = None) -> bool:
+    def is_logged_in(self, *, session: Optional[requests.Session] = None) -> Optional[User]:
         session = session or utils.get_default_session()
         url = 'https://toph.co/login'
-        resp = utils.request('GET', url, session=session, allow_redirects=False)
-        return resp.status_code != 200
+        resp = utils.request('GET', url, session=session)
+        if urllib.parse.urlparse(resp.url).path == '/login':
+            return None
+        soup = bs4.BeautifulSoup(resp.content, utils.HTML_PARSER)
+        profile = soup.select_one('.pmenu a[href^="/u/"]')
+        assert profile is not None, 'Cannot find the logged-in Toph user'
+        username = urllib.parse.unquote(profile['href'].split('/')[-1])
+        return User(username, urllib.parse.urljoin(self.get_url(), profile['href']))
 
     def get_url(self) -> str:
         return 'https://toph.co/'

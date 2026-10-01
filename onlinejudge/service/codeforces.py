@@ -60,11 +60,15 @@ class CodeforcesService(onlinejudge.type.Service):
     def get_url_of_login_page(self) -> str:
         return 'https://codeforces.com/enter'
 
-    def is_logged_in(self, *, session: Optional[requests.Session] = None) -> bool:
+    def is_logged_in(self, *, session: Optional[requests.Session] = None) -> Optional[User]:
         session = session or utils.get_default_session()
-        url = 'https://codeforces.com/enter'
-        resp = utils.request('GET', url, session=session, allow_redirects=False)
-        return resp.status_code == 302
+        url = 'https://codeforces.com/profile'
+        resp = utils.request('GET', url, session=session)
+        path = urllib.parse.urlparse(resp.url).path
+        if not path.startswith('/profile/'):
+            return None
+        username = urllib.parse.unquote(path[len('/profile/'):])
+        return User(username, resp.url)
 
     def get_url(self) -> str:
         return 'https://codeforces.com/'

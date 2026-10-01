@@ -14,6 +14,11 @@ import requests
 
 CredentialsProvider = Callable[[], Tuple[str, str]]
 
+User = NamedTuple('User', [
+    ('username', str),
+    ('profile_url', Optional[str]),
+])
+
 
 class LoginError(RuntimeError):
     def __init__(self, message: str = 'failed to login'):
@@ -34,7 +39,8 @@ class Service(ABC):
         """
         raise NotImplementedError
 
-    def is_logged_in(self, *, session: Optional[requests.Session] = None) -> bool:
+    def is_logged_in(self, *, session: Optional[requests.Session] = None) -> Optional[User]:
+        """Return the current user, or None when not logged in."""
         raise NotImplementedError
 
     @abstractmethod

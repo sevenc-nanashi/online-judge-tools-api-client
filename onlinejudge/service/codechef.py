@@ -9,13 +9,14 @@ import urllib.parse
 from logging import getLogger
 from typing import *
 
+import bs4
 import requests
 
 import onlinejudge._implementation.testcase_zipper
 import onlinejudge._implementation.utils as utils
 import onlinejudge.dispatch
 import onlinejudge.type
-from onlinejudge.type import SampleParseError
+from onlinejudge.type import SampleParseError, User
 
 logger = getLogger(__name__)
 
@@ -39,11 +40,17 @@ class CodeChefService(onlinejudge.type.Service):
     def get_url_of_login_page(self) -> str:
         return 'https://www.codechef.com/'
 
-    def is_logged_in(self, *, session: Optional[requests.Session] = None) -> bool:
+    def is_logged_in(self, *, session: Optional[requests.Session] = None) -> Optional[User]:
         session = session or utils.get_default_session()
         url = 'https://www.codechef.com/certificates/'
         resp = utils.request('GET', url, session=session, raise_for_status=False)
-        return resp.status_code == 200
+        if resp.status_code != 200:
+            return None
+        soup = bs4.BeautifulSoup(resp.content, utils.HTML_PARSER)
+        profile = soup.find('a', href=re.compile(r'^(?:https://www\.codechef\.com)?/users/[^/]+$'))
+        assert profile is not None, 'Cannot find the logged-in CodeChef user'
+        username = urllib.parse.unquote(urllib.parse.urlparse(profile['href']).path.split('/')[-1])
+        return User(username, urllib.parse.urljoin(self.get_url(), profile['href']))
 
 
 class CodeChefProblemData(onlinejudge.type.ProblemData):

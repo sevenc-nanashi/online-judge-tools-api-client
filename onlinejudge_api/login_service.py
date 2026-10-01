@@ -4,6 +4,8 @@ from onlinejudge.type import *
 
 schema_example = {
     "loggedIn": True,
+    "userName": "chokudai",
+    "profileUrl": "https://atcoder.jp/users/chokudai",
 }  # type: Dict[str, Any]
 
 schema = {
@@ -11,6 +13,13 @@ schema = {
     "properties": {
         "loggedIn": {
             "type": "boolean",
+        },
+        "userName": {
+            "type": "string",
+        },
+        "profileUrl": {
+            "type": ["string", "null"],
+            "format": "uri",
         },
     },
     "required": ["loggedIn"],
@@ -27,7 +36,6 @@ def main(service: Service, *, username: Optional[str], password: Optional[str], 
     if check_only:
         # We cannot check `assert username is None` because some environments defines $USERNAME and it is set here. See https://github.com/online-judge-tools/api-client/issues/53
         assert password is None
-        result["loggedIn"] = service.is_logged_in(session=session)
     else:
         assert username is not None
         assert password is not None
@@ -38,5 +46,11 @@ def main(service: Service, *, username: Optional[str], password: Optional[str], 
             return (username, password)
 
         service.login(get_credentials=get_credentials, session=session)
-        result["loggedIn"] = True
+    user = service.is_logged_in(session=session)
+    if not check_only and user is None:
+        raise LoginError
+    result["loggedIn"] = user is not None
+    if user is not None:
+        result["userName"] = user.username
+        result["profileUrl"] = user.profile_url
     return result

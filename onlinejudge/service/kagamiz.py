@@ -3,6 +3,7 @@ the module for Kagamiz Contest System (https://kcs.miz-miz.biz/)
 """
 
 import json
+import re
 import urllib.parse
 from logging import getLogger
 from typing import *
@@ -35,11 +36,16 @@ class KagamizContestSystemService(onlinejudge.type.Service):
     def get_url_of_login_page(self) -> str:
         return 'https://kcs.miz-miz.biz/user/login'
 
-    def is_logged_in(self, *, session: Optional[requests.Session] = None) -> bool:
+    def is_logged_in(self, *, session: Optional[requests.Session] = None) -> Optional[User]:
         session = session or utils.get_default_session()
         url = 'https://kcs.miz-miz.biz/user/login'
-        resp = utils.request('GET', url, session=session, allow_redirects=False)
-        return resp.status_code == 302
+        resp = utils.request('GET', url, session=session)
+        if urllib.parse.urlparse(resp.url).path == '/user/login':
+            return None
+        menu = re.search(r"label\s*:\s*'([^']*)'\s*,\s*id\s*:\s*'user-menu'", resp.text)
+        assert menu is not None, 'Cannot find the logged-in Kagamiz user'
+        username = bs4.BeautifulSoup(menu.group(1), utils.HTML_PARSER).get_text(strip=True)
+        return User(username, None)
 
 
 # TODO: add tests for this class

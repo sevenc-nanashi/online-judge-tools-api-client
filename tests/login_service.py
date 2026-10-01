@@ -38,7 +38,7 @@ class LoginServiceAtCoderTest(unittest.TestCase):
     @unittest.skipIf(not (os.getenv(ATCODER_USERNAME) and os.getenv(ATCODER_PASSWORD)), 'credentails for AtCoder is required')
     def test_login_success(self) -> None:
         url = 'https://atcoder.jp/'
-        expected = {"status": "ok", "messages": [], "result": {"loggedIn": True}}
+        expected = {"status": "ok", "messages": [], "result": {"loggedIn": True, "userName": os.environ[ATCODER_USERNAME], "profileUrl": "https://atcoder.jp/users/" + os.environ[ATCODER_USERNAME]}}
 
         with update_environ(USERNAME=os.environ[ATCODER_USERNAME], PASSWORD=os.environ[ATCODER_PASSWORD]):
             with temporary_cookie() as cookie_path:
@@ -63,7 +63,7 @@ class LoginServiceCodeforcesTest(unittest.TestCase):
     @unittest.skipIf(not (os.getenv(CODEFORCES_USERNAME) and os.getenv(CODEFORCES_PASSWORD)), 'credentails for Codeforces is required')
     def test_login_success(self) -> None:
         url = 'https://codeforces.com/'
-        expected = {"status": "ok", "messages": [], "result": {"loggedIn": True}}
+        expected = {"status": "ok", "messages": [], "result": {"loggedIn": True, "userName": os.environ[CODEFORCES_USERNAME], "profileUrl": "https://codeforces.com/profile/" + os.environ[CODEFORCES_USERNAME]}}
 
         with update_environ(USERNAME=os.environ[CODEFORCES_USERNAME], PASSWORD=os.environ[CODEFORCES_PASSWORD]):
             with temporary_cookie() as cookie_path:

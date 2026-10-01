@@ -19,7 +19,7 @@ import requests
 import onlinejudge._implementation.testcase_zipper
 import onlinejudge._implementation.utils as utils
 import onlinejudge.type
-from onlinejudge.type import TestCase
+from onlinejudge.type import TestCase, User
 
 logger = getLogger(__name__)
 
@@ -45,15 +45,17 @@ class AOJService(onlinejudge.type.Service):
     # def get_url_of_login_page(self) -> str:
     #     return 'https://onlinejudge.u-aizu.ac.jp/signin'
 
-    def is_logged_in(self, *, session: Optional[requests.Session] = None) -> bool:
+    def is_logged_in(self, *, session: Optional[requests.Session] = None) -> Optional[User]:
         session = session or utils.get_default_session()
         url = 'https://onlinejudge.u-aizu.ac.jp/api/self'
         resp = utils.request('GET', url, session=session, raise_for_status=False)
         if resp.status_code != 200:
-            return False
+            return None
         data = json.loads(resp.content)
         logger.debug('self: %s', resp.content)
-        return 'id' in data
+        if 'id' not in data:
+            return None
+        return User(data['id'], 'https://onlinejudge.u-aizu.ac.jp/status/users/{}'.format(urllib.parse.quote(data['id'], safe='')))
 
 
 class AOJProblem(onlinejudge.type.Problem):
