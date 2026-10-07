@@ -10,6 +10,7 @@ class GetProblemAnarchyGolfTest(unittest.TestCase):
             "status": "ok",
             "messages": [],
             "result": {
+                "name": "hello world",
                 "url": "http://golf.shinh.org/p.rb?hello+world",
                 "problemId": "hello+world",
                 "tests": [
@@ -30,6 +31,7 @@ class GetProblemAnarchyGolfTest(unittest.TestCase):
             "status": "ok",
             "messages": [],
             "result": {
+                "name": "simple language",
                 "url": "http://golf.shinh.org/p.rb?simple+language",
                 "problemId": "simple+language",
                 "tests": [
@@ -61,6 +63,7 @@ class GetProblemAnarchyGolfTest(unittest.TestCase):
             "status": "ok",
             "messages": [],
             "result": {
+                "name": "momomo",
                 "url": "http://golf.shinh.org/p.rb?momomo",
                 "problemId": "momomo",
                 "tests": [

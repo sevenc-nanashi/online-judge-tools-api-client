@@ -40,6 +40,15 @@ class CSAcademyProblem(onlinejudge.type.Problem):
         self.contest_name = contest_name
         self.task_name = task_name
 
+    def get_name(self, *, session: Optional[requests.Session] = None) -> str:
+        session = session or utils.get_default_session()
+        url = 'https://csacademy.com/contest/{}/'.format(self.contest_name)
+        resp = utils.request('GET', url, session=session, headers={'x-requested-with': 'XMLHttpRequest'})
+        for task in json.loads(resp.text)['state']['contesttask']:
+            if task['name'] == self.task_name:
+                return task['longName']
+        raise SampleParseError('no such task: {}'.format(self.task_name))
+
     def download_sample_cases(self, *, session: Optional[requests.Session] = None) -> List[TestCase]:
         session = session or utils.get_default_session()
         base_url = self.get_url()

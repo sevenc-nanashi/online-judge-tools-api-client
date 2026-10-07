@@ -10,6 +10,7 @@ class GetProblemPOJTest(unittest.TestCase):
             "status": "ok",
             "messages": [],
             "result": {
+                "name": "A+B Problem",
                 "url": "http://poj.org/problem?id=1000",
                 "problemId": "1000",
                 "tests": [{
@@ -28,6 +29,7 @@ class GetProblemPOJTest(unittest.TestCase):
             "status": "ok",
             "messages": [],
             "result": {
+                "name": "K-th Number",
                 "url": "http://poj.org/problem?id=2104",
                 "problemId": "2104",
                 "tests": [{
@@ -46,6 +48,7 @@ class GetProblemPOJTest(unittest.TestCase):
             "status": "ok",
             "messages": [],
             "result": {
+                "name": "Cellular Automaton",
                 "url": "http://poj.org/problem?id=3150",
                 "problemId": "3150",
                 "tests": [{

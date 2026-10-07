@@ -324,6 +324,16 @@ class CodeforcesProblem(onlinejudge.type.Problem):
         self.lesson = lesson
         self.step = step
 
+    def get_name(self, *, session: Optional[requests.Session] = None) -> str:
+        if self.kind not in {'problemset', 'edu'}:
+            return self.download_data(session=session).name
+        session = session or utils.get_default_session()
+        resp = utils.request('GET', self.get_url(), session=session)
+        soup = bs4.BeautifulSoup(resp.text, utils.HTML_PARSER)
+        name = soup.select_one('.problem-statement .header .title')
+        assert name is not None, 'Problem name not found'
+        return utils.remove_prefix(name.get_text().strip(), self.index + '. ')
+
     def download_sample_cases(self, *, session: Optional[requests.Session] = None) -> List[onlinejudge.type.TestCase]:
         session = session or utils.get_default_session()
         # get

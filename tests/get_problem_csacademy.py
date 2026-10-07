@@ -10,6 +10,7 @@ class GetProblemCSAcademyTest(unittest.TestCase):
             "status": "ok",
             "messages": [],
             "result": {
+                "name": "K Swap",
                 "url": "https://csacademy.com/contest/round-39/task/k-swap/",
                 "tests": [
                     {
@@ -37,6 +38,7 @@ class GetProblemCSAcademyTest(unittest.TestCase):
             "status": "ok",
             "messages": [],
             "result": {
+                "name": "Unfair Game",
                 "url": "https://csacademy.com/contest/archive/task/unfair_game/",
                 "tests": [
                     {

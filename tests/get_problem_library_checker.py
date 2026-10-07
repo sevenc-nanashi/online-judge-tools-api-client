@@ -13,6 +13,7 @@ class GetProblemLibraryCheckerTest(unittest.TestCase):
             "status": "ok",
             "messages": [],
             "result": {
+                "name": "Unionfind",
                 "url": "https://judge.yosupo.jp/problem/unionfind",
                 "problemId": "unionfind",
                 "tests": [{
@@ -34,6 +35,7 @@ class GetProblemLibraryCheckerTest(unittest.TestCase):
             "status": "ok",
             "messages": [],
             "result": {
+                "name": "A + B",
                 "url": "https://judge.yosupo.jp/problem/aplusb",
                 "problemId": "aplusb",
                 "tests": [{

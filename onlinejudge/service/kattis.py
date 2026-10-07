@@ -8,6 +8,7 @@ import urllib.parse
 from logging import getLogger
 from typing import *
 
+import bs4
 import requests
 
 import onlinejudge._implementation.testcase_zipper
@@ -48,6 +49,14 @@ class KattisProblem(onlinejudge.type.Problem):
         self.domain = 'open.kattis.com'
         self.contest_id = contest_id
         self.problem_id = problem_id
+
+    def get_name(self, *, session: Optional[requests.Session] = None) -> str:
+        session = session or utils.get_default_session()
+        resp = utils.request('GET', self.get_url(contests=False), session=session)
+        soup = bs4.BeautifulSoup(resp.text, utils.HTML_PARSER)
+        name = soup.select_one('h1')
+        assert name is not None, 'Problem name not found'
+        return name.get_text().strip()
 
     def download_sample_cases(self, *, session: Optional[requests.Session] = None) -> List[onlinejudge.type.TestCase]:
         session = session or utils.get_default_session()

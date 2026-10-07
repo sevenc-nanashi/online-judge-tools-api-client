@@ -162,6 +162,7 @@ class CodeChefProblem(onlinejudge.type.Problem):
             logger.debug('json: %s', resp.content.decode())
             raise SampleParseError('CodeChef API failed with: {}'.format(data.get('message')))
 
+        data['name'] = data['problem_name']
         return CodeChefProblemData(contest_id=self.contest_id, data=data)
 
     def download_sample_cases(self, *, session: Optional[requests.Session] = None) -> List[onlinejudge.type.TestCase]:

@@ -375,6 +375,10 @@ def main(problem: Problem, *, is_system: bool, is_compatibility: bool, is_full: 
 
     else:
         result["context"] = {}
+        try:
+            result["name"] = problem.get_name(session=session)
+        except NotImplementedError:
+            pass
 
     if is_full:
         try:

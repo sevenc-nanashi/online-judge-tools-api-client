@@ -58,6 +58,14 @@ class KagamizContestSystemProblem(onlinejudge.type.Problem):
         self.contest_id = contest_id
         self.problem_id = problem_id
 
+    def get_name(self, *, session: Optional[requests.Session] = None) -> str:
+        session = session or utils.get_default_session()
+        resp = utils.request('GET', self.get_url(), session=session)
+        soup = bs4.BeautifulSoup(resp.text, utils.HTML_PARSER)
+        name = soup.select_one('h1')
+        assert name is not None, 'Problem name not found'
+        return utils.remove_prefix(name.get_text().strip(), urllib.parse.unquote(self.problem_id) + ' : ')
+
     def download_sample_cases(self, *, session: Optional[requests.Session] = None) -> List[TestCase]:
         session = session or utils.get_default_session()
         # TODO: implement this function

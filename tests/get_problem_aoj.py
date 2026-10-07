@@ -11,6 +11,7 @@ class GetProblemAOJTest(unittest.TestCase):
             "status": "ok",
             "messages": [],
             "result": {
+                "name": "Infallibly Crack Perplexing Cryptarithm",
                 "url": "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1371",
                 "problemId": "1371",
                 "tests": [{
@@ -47,6 +48,7 @@ class GetProblemAOJTest(unittest.TestCase):
             "status": "ok",
             "messages": [],
             "result": {
+                "name": "Rose Garden Witch",
                 "url": "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2310",
                 "problemId": "2310",
                 "tests": [{
@@ -77,6 +79,7 @@ class GetProblemAOJTest(unittest.TestCase):
             "status": "ok",
             "messages": [],
             "result": {
+                "name": "Sinking islands",
                 "url": "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2511",
                 "problemId": "2511",
                 "tests": [{
@@ -97,6 +100,7 @@ class GetProblemAOJSystemTest(unittest.TestCase):
             "status": "ok",
             "messages": [],
             "result": {
+                "name": "X Cubic",
                 "url": "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_1_B",
                 "problemId": "ITP1_1_B",
                 "tests": [{
@@ -128,6 +132,7 @@ class GetProblemAOJSystemTest(unittest.TestCase):
             "status": "ok",
             "messages": [],
             "result": {
+                "name": "The Most Powerful Spell",
                 "url": "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1169",
                 "problemId": "1169",
                 "tests": [{
@@ -152,6 +157,7 @@ class GetProblemAOJArenaTest(unittest.TestCase):
             "status": "ok",
             "messages": [],
             "result": {
+                "name": "6/2(1+2)",
                 "url": "https://onlinejudge.u-aizu.ac.jp/services/room.html#yupro/problems/D",
                 "tests": [{
                     "input": "6/2*(1+2)\n1-1-1\n(1-1-1)/2\n#\n",

@@ -10,6 +10,7 @@ class GetProblemTophTest(unittest.TestCase):
             "status": "ok",
             "messages": [],
             "result": {
+                "name": "New Year Couple",
                 "url": "https://toph.co/p/new-year-couple",
                 "problemId": "new-year-couple",
                 "tests": [
@@ -34,6 +35,7 @@ class GetProblemTophTest(unittest.TestCase):
             "status": "ok",
             "messages": [],
             "result": {
+                "name": "Power and Mod",
                 "url": "https://toph.co/p/power-and-mod",
                 "problemId": "power-and-mod",
                 "tests": [

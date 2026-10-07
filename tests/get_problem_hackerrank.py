@@ -25,6 +25,7 @@ class GetProblemHackerRankTest(unittest.TestCase):
             "status": "ok",
             "messages": [],
             "result": {
+                "name": "Weather Forecast Quality",
                 "url": "https://www.hackerrank.com/contests/101hack54/challenges/weather-forecast-quality",
                 "tests": [
                     {

@@ -65,6 +65,12 @@ class AOJProblem(onlinejudge.type.Problem):
     def __init__(self, *, problem_id):
         self.problem_id = problem_id
 
+    def get_name(self, *, session: Optional[requests.Session] = None) -> str:
+        session = session or utils.get_default_session()
+        url = 'https://onlinejudge.u-aizu.ac.jp/api/problems/ids/{}'.format(self.problem_id)
+        resp = utils.request('GET', url, session=session)
+        return json.loads(resp.text)['problems'][0]['name']
+
     def download_sample_cases(self, *, session: Optional[requests.Session] = None) -> List[TestCase]:
         session = session or utils.get_default_session()
 
@@ -204,6 +210,9 @@ class AOJArenaProblem(onlinejudge.type.Problem):
                     logger.debug('problem: %s', problem)
                     break
         return self._problem_id
+
+    def get_name(self, *, session: Optional[requests.Session] = None) -> str:
+        return AOJProblem(problem_id=self.get_problem_id(session=session)).get_name(session=session)
 
     def download_sample_cases(self, *, session: Optional[requests.Session] = None) -> List[TestCase]:
         return AOJProblem(problem_id=self.get_problem_id()).download_sample_cases(session=session)

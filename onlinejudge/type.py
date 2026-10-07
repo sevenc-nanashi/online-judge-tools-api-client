@@ -291,6 +291,10 @@ class Problem(ABC):
     def get_service(self) -> Service:
         raise NotImplementedError
 
+    def get_name(self, *, session: Optional[requests.Session] = None) -> str:
+        """Download the problem name without its contest-specific label."""
+        return self.download_data(session=session).name
+
     def download_data(self, *, session: Optional[requests.Session] = None) -> ProblemData:
         """
         .. versionadded:: 7.0.0

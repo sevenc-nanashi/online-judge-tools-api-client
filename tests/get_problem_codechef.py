@@ -10,6 +10,7 @@ class GetProblemCodeChefTest(unittest.TestCase):
             "status": "ok",
             "messages": [],
             "result": {
+                "name": "XOR-ORED",
                 "url": "https://www.codechef.com/COOK131B/problems/XORORED",
                 "problemId": "XORORED",
                 "contestId": "COOK131B",

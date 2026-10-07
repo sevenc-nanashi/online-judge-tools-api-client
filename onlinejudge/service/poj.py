@@ -39,6 +39,14 @@ class POJProblem(onlinejudge.type.Problem):
     def __init__(self, *, problem_id: int):
         self.problem_id = problem_id
 
+    def get_name(self, *, session: Optional[requests.Session] = None) -> str:
+        session = session or utils.get_default_session()
+        resp = utils.request('GET', self.get_url(), session=session)
+        soup = bs4.BeautifulSoup(resp.text, utils.HTML_PARSER)
+        name = soup.select_one('.ptt')
+        assert name is not None, 'Problem name not found'
+        return name.get_text().strip()
+
     def download_sample_cases(self, *, session: Optional[requests.Session] = None) -> List[TestCase]:
         session = session or utils.get_default_session()
         # get

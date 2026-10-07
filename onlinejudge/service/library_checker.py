@@ -4,6 +4,7 @@ the module for yosupo's Library Checker (https://judge.yosupo.jp)
 """
 
 import glob
+import json
 import os
 import pathlib
 import re
@@ -73,6 +74,12 @@ class LibraryCheckerService(onlinejudge.type.Service):
 class LibraryCheckerProblem(onlinejudge.type.Problem):
     def __init__(self, *, problem_id: str):
         self.problem_id = problem_id
+
+    def get_name(self, *, session: Optional[requests.Session] = None) -> str:
+        session = session or utils.get_default_session()
+        url = 'https://v3.api.judge.yosupo.jp/problems/{}'.format(self.problem_id)
+        resp = utils.request('GET', url, session=session)
+        return json.loads(resp.text)['title']
 
     def download_sample_cases(self, *, session: Optional[requests.Session] = None) -> List[TestCase]:
         self._generate_test_cases_in_cloned_repository()

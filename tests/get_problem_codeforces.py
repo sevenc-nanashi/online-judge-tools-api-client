@@ -18,6 +18,7 @@ class GetProblemCodeforcesTest(unittest.TestCase):
             "status": "ok",
             "messages": [],
             "result": {
+                "name": "Connecting Universities",
                 "url": "https://codeforces.com/problemset/problem/700/B",
                 "problemId": "B",
                 "contestId": "700",
@@ -212,6 +213,7 @@ class GetProblemCodeforcesTest(unittest.TestCase):
                     "status": "ok",
                     "messages": [],
                     "result": {
+                        "name": "Suffix Array - 1",
                         "url": "https://codeforces.com/edu/course/2/lesson/2/1/practice/contest/269100/problem/A",
                         "problemId": "A",
                         "contestId": "269100",

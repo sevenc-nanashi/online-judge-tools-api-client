@@ -10,6 +10,7 @@ class GetProblemKattisTest(unittest.TestCase):
             "status": "ok",
             "messages": [],
             "result": {
+                "name": "Eight Queens",
                 "url": "https://open.kattis.com/contests/asiasg15prelwarmup/problems/8queens",
                 "problemId": "8queens",
                 "contestId": "asiasg15prelwarmup",
@@ -38,6 +39,7 @@ class GetProblemKattisTest(unittest.TestCase):
             "status": "ok",
             "messages": [],
             "result": {
+                "name": "Amazing Adventures",
                 "url": "https://open.kattis.com/contests/hanoi18/problems/amazingadventures",
                 "problemId": "amazingadventures",
                 "contestId": "hanoi18",

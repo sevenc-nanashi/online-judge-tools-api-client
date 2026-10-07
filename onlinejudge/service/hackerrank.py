@@ -60,6 +60,9 @@ class HackerRankProblem(onlinejudge.type.Problem):
         self.contest_slug = contest_slug
         self.challenge_slug = challenge_slug
 
+    def get_name(self, *, session: Optional[requests.Session] = None) -> str:
+        return self._get_model(session=session)['name']
+
     def download_sample_cases(self, *, session: Optional[requests.Session] = None) -> List[TestCase]:
         return self.download_system_cases(session=session)
 
